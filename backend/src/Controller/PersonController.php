@@ -13,8 +13,17 @@ class PersonController
      */
     public function create(Request $request)
     {
-        $response = new JsonResponse('ok');
-        $response->headers->set('Access-Control-Allow-Origin', '*');
+        $data = $this->getData($request);
+
+        // TODO something
+
+        $response = new JsonResponse($data);
         return $response;
+    }
+
+
+    public function getData(Request $request)
+    {
+        return json_decode($request->getContent(), true);
     }
 }

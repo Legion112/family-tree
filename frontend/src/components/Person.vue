@@ -16,7 +16,10 @@
                       <input v-model="last_name" type="text" class="form-control" id="last_name" placeholder="Enter Last name">
                       <small id="first_nameHelper" class="form-text text-muted">First name</small>
                   </div>
-                  <datepicker v-model="date_birth" name="date_birth"></datepicker>
+                  <div class="form-group">
+
+                    <datepicker v-model="date_birth" name="date_birth" input-class="form-control"></datepicker>
+                  </div>
                   <button type="submit" class="btn btn-primary">Submit</button>
 
               </form>
@@ -56,7 +59,11 @@ export default {
                 last_name: this.last_name,
                 date_birth: this.formatSave(this.date_birth),
             };
-            axios.post('http://127.0.0.1:8000/person/create/').then(({data})=>{
+            axios.post(
+                '/person/create/',
+                data,
+                {headers: {'Accept': 'application/json'}}
+            ).then(({data})=>{
                 console.log(data);
             })
         }
