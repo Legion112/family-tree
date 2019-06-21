@@ -56,8 +56,9 @@ export default {
                 last_name: this.last_name,
                 date_birth: this.formatSave(this.date_birth),
             };
-            console.log(data);
-            // TODO send data
+            axios.post('http://127.0.0.1:8000/person/create/').then(({data})=>{
+                console.log(data);
+            })
         }
     }
 }
