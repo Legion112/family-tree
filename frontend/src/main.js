@@ -7,7 +7,7 @@ new Vue({
   render: h => h(App),
   data: {
     format: {
-      date_save: 'DD/MM/YYYY',
+        date_save: 'MM/DD/YYYY',
     }
   }
 }).$mount('#app')

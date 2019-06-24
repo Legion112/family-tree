@@ -2,6 +2,9 @@
 
 namespace App\Controller;
 
+use App\Entity\Person;
+use DateTime;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
@@ -11,14 +14,20 @@ class PersonController
     /**
      * @Route("/person/create/", name="person_create")
      */
-    public function create(Request $request)
+    public function create(Request $request, EntityManagerInterface $entityManager)
     {
         $data = $this->getData($request);
 
-        // TODO something
+        $person = new Person();
 
-        $response = new JsonResponse($data);
-        return $response;
+        $person->setLastName($data['last_name']);
+        $person->setFirstName($data['first_name']);
+        $person->setDateBirth(new DateTime($data['date_birth']));
+
+        $entityManager->persist($person);
+        $entityManager->flush();
+
+        return new JsonResponse($person->getId());
     }
 
 
