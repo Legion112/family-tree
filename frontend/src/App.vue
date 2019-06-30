@@ -1,20 +1,15 @@
 <template>
   <div id="app">
-    <Person/>
+    <div id="nav">
+      <router-link to="/">Home</router-link>
+      |
+      <router-link to="/about">About</router-link>
+      |
+      <router-link to="/sign-up">Sign up</router-link>
+    </div>
+    <router-view/>
   </div>
 </template>
-
-<script>
-import Person from './components/Person.vue';
-import 'bootstrap/dist/css/bootstrap.css';
-
-export default {
-  name: 'app',
-  components: {
-      Person
-  },
-}
-</script>
 
 <style>
 
