@@ -32,10 +32,11 @@
 </template>
 
 <script>
-import Datepicker from 'vuejs-datepicker';
-import axios from 'axios';
-import moment from 'moment';
-export default {
+    import Datepicker from 'vuejs-datepicker';
+    import axios from 'axios';
+    import moment from 'moment';
+
+    export default {
   name: 'Person',
     components: {
         Datepicker
@@ -60,7 +61,7 @@ export default {
                 date_birth: this.formatSave(this.date_birth),
             };
             axios.post(
-                '/person/create/',
+                '/api/person/create/',
                 data,
                 {headers: {'Accept': 'application/json'}}
             ).then(({data})=>{

@@ -12,7 +12,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class PersonController
 {
     /**
-     * @Route("/person/create/", name="person_create")
+     * @Route("/api/person/create/", name="person_create")
      */
     public function create(Request $request, EntityManagerInterface $entityManager)
     {
