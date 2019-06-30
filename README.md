@@ -2,7 +2,7 @@
 ```
 cd backend
 composer install
-php /bin/console serve:run
+php ./bin/console serve:run
 ```
 In another terminal
 ```
